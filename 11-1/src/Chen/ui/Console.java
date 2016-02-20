@@ -4,14 +4,7 @@ import java.util.Scanner;
 
 public class Console {
 
-   
-    public static void displayLine() {
-        System.out.println();
-    }
-
-    public static void displayLine(String s) {
-        System.out.println(s);
-    }
+    private static Scanner sc = new Scanner(System.in);
 
     public static String getChoice(String prompt) {
         String s = "";
