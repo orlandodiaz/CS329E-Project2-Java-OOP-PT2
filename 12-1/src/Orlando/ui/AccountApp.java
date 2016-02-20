@@ -48,7 +48,7 @@ public class AccountApp {
         System.out.println("\nMonthly Fees ");
         System.out.println("Checking fee: "+ca.getMonthlyFeeFormatted());
         System.out.println("\nFinal Balance ");
-        System.out.println("Chekcing: "+ acc1.getBalanceFormatted());
+        System.out.println("Checking: "+ acc1.getBalanceFormatted());
 
 
 
