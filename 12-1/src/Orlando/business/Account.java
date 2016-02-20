@@ -1,4 +1,7 @@
 package Orlando.business;
+import Orlando.ui.AccountApp;
+
+import java.text.NumberFormat;
 
 /**
  * Created by orlandordiaz on 2/19/16.
@@ -7,11 +10,12 @@ public class Account implements Orlando.interfaces.Depositable, Orlando.interfac
     
     
     private double balance;
+
     /**
      * Constructs a default Account with given balance.
      */
-    protected Account(double balance) {
-        balance = 1000;
+    public Account() {
+       balance = getBalance();
     }
 
     /* Define the method for obtaining an Account's balance. */
@@ -20,22 +24,28 @@ public class Account implements Orlando.interfaces.Depositable, Orlando.interfac
     public double getBalance() {
         return balance;
     }
+    public String getBalanceFormatted() {
+        NumberFormat currency = NumberFormat.getCurrencyInstance();
+        String priceFormatted = currency.format(balance);
+        return priceFormatted;
+
+    }
+
 
     /* Define the method for modifying an Account's balance. */
     @Override
-    public final void setBalance(double amount) {
-        balance = amount;
+    public final void setBalance(double balance) {
+       this.balance =balance;
     }
 
     /*add the amount to the balance when depositing. */
-    @Override public void deposit(double amount) {
-        // Validations
-
-        if(amount > 10000)
-        {
+    @Override
+    public void deposit(double amount) {
+         if(amount > 10000)
+         {
             System.out.println("You can't deposit more than $10,000 per transaction.");
         }
-        else
+         else
         {
             balance = balance + amount;
         }
@@ -46,17 +56,16 @@ public class Account implements Orlando.interfaces.Depositable, Orlando.interfac
     public void withdraw(double amount) {
 
         // Validate
-        if(balance < amount)
-        {
-            System.out.println("You can't withdraw more than your current account balance.");
-        }
-        else
-        {
-            balance = balance - amount;
-        }
-    }
+
+            if (balance < amount) {
+                System.out.println("You can't withdraw more than your current account balance.");
+            } else {
+                balance = balance - amount;
+            }
 
 
 
 
-}
+
+
+}}
